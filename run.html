@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustJog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="dropdown" id="dropdown">
+                <div class="settings-icon" id="settings-icon">
+                    &#9776; 
+                </div>
+            </div>
+            <div class="logo">JustJog</div>
+        </div>
+        <div class="profile-settings">
+            <img src="profile-icon.png" alt="Profile Icon" class="profile-icon">
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="dropdown" id="sidebar-dropdown">
+            <div class="settings-icon" id="sidebar-settings-icon">
+                &#9776; 
+            </div>
+        </div>
+        <a href="#">Schedule</a>
+        <a href="#">Stats</a>
+    </div>
+    <div class="home-screen">
+        <div class="greeting">
+            <h2 id="username-greet">Hi, [User Name]!</h2>
+            <h2>Keep pushing your limits!</h2>
+    
+        </div>
+        <div class="content">
+            <div class="map-section">
+                <div class="map-placeholder">
+                    <p>Map here</p>
+                </div>
+            </div>
+            <div class="stats-section">
+                <div class="stats">
+                    <div class="stat-row">
+                        <div class="stat-card">
+                            <h3>Today's Goal</h3>
+                            <p><span id="goal-counter">1</span>/1000 km</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Steps</h3>
+                            <p><span id="steps-counter">0</span></p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Calories Burned</h3>
+                        <p>69420 kcal</p>
+                    </div>
+                </div>
+                <div class="quick-start">
+                    <button class="quick-start-button">Start Run</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script>
+        getDataFromDatabase('/user/username/username').then((data) => {
+          // Use the retrieved data here
+          console.log(data.val()); // Example: Access data from the snapshot
+        });
+      </script>
+
+
+</body>
+</html>
